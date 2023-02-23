@@ -14,6 +14,8 @@ import com.helpdesk.repositories.TecnicoRepository;
 import com.helpdesk.services.exceptions.DataIntegrityViolationException;
 import com.helpdesk.services.exceptions.ObjectnotFoundException;
 
+import jakarta.validation.Valid;
+
 @Service
 public class TecnicoService {
 	
@@ -50,5 +52,27 @@ public class TecnicoService {
 		
 		}
 	}
+
+	public Tecnico update(Integer id, @Valid TecnicoDTO objDTO) {
+		objDTO.setId(id);
+		Tecnico oldobj = findById(id);
+		validaPorCpfEEmail(objDTO);
+		
+		oldobj = new Tecnico(objDTO);
+		
+		return repository.save(oldobj);
+	}
+
+	public void delete(Integer id) {
+		Tecnico obj = findById(id);
+		if( obj.getChamados().size()>0) {
+			throw new DataIntegrityViolationException("Tecnico possui ordens de serviços não pode ser deletado");
+		} else {
+			repository.deleteById(id);
+		}
+		
+	}
+	
+	
 	
 	}

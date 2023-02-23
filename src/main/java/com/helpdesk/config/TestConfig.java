@@ -46,12 +46,12 @@ public class TestConfig implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		Tecnico tec1 = new Tecnico(null, "Kennedy brito", "656874123", "kennedy@gmail.com", "123456");
+		Tecnico tec1 = new Tecnico(null, "Kennedy brito", "15973823024", "kennedy@gmail.com", "123456");
 	
 		tec1.addPerfil(Perfil.ADMIN);
 		
 		
-		Cliente cli1 = new Cliente(null, "Dwayne Johnson", "458712657", "dwayne@gmail.com", "123");
+		Cliente cli1 = new Cliente(null, "Dwayne Johnson", "80500831017", "dwayne@gmail.com", "123");
 		
 		Chamado c1 = new Chamado(null, Prioridade.MEDIA, Status.ABERTO, "chamado 01", "chamado teste", tec1, cli1);
 		
