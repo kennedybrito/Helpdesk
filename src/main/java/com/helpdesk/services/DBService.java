@@ -30,6 +30,7 @@ public class DBService {
 	public void instaciaDB() {
 		
 		Tecnico tec1 = new Tecnico(null, "Kennedy brito", "656874123", "kennedy@gmail.com", "123456");
+		Tecnico tec2 = new Tecnico(null, "teste 2", "657774123", "kennedy@gmail.com", "123456");
 		tec1.addPerfil(Perfil.ADMIN);
 		
 		
@@ -37,7 +38,7 @@ public class DBService {
 		
 		Chamado c1 = new Chamado(null, Prioridade.MEDIA, Status.ABERTO, "chamado 01", "chamado teste", tec1, cli1);
 		
-		tecR.saveAll(Arrays.asList(tec1));
+		tecR.saveAll(Arrays.asList(tec1,tec2));
 		cliR.saveAll(Arrays.asList(cli1));
 		chaR.saveAll(Arrays.asList(c1));
 		
