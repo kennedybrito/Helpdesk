@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.helpdesk.domains.enums.Perfil;
 import com.helpdesk.dto.ClienteDTO;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
 
 @Entity
 public class Cliente extends Pessoa {
